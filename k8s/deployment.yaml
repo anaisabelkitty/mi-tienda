@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-tienda
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-tienda
+  template:
+    metadata:
+      labels:
+        app: mi-tienda
+    spec:
+      containers:
+        - name: mi-tienda
+          image: isabelkitty/mi-tienda:v1
+          ports:
+            - containerPort: 80
